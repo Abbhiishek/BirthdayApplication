@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">BirthdayApplication</string>
+    <string name="birthday_person_name">Abhishek</string>
+    <string name="birthday_wish">Hope all your birthday wishes come true!</string>
+    <string name="birthday_wish_from">Chandan</string>
+</resources>
