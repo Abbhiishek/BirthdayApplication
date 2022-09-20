@@ -11,9 +11,12 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.fontResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -47,13 +50,14 @@ fun Greeting(name: String) {
 fun GreetingWithImage(name: String , wish: String , from: String){
     val image = painterResource(id = R.drawable.birthdayimage)
 
-    Box(){
+    Box{
         Image(
             painter = image,
             contentDescription = null,
             modifier = Modifier
                 .fillMaxHeight()
-                .fillMaxWidth(),
+                .fillMaxWidth()
+                .blur(4.dp),
             contentScale = ContentScale.Crop
         )
         GreetingWithText(name = name, wish = wish, from = from )
@@ -65,21 +69,34 @@ fun GreetingWithImage(name: String , wish: String , from: String){
 @Composable
 fun GreetingWithText( name: String , wish: String , from: String) {
             Column{
-                Text(text = "Happy Birthday $name!",
-                    fontSize = 36.sp,
+                Text(text = "Happy Birthday \uD83C\uDF82 $name! ",
+                    fontSize = 30.sp,
+                    fontFamily = FontFamily.Monospace,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .wrapContentWidth(Alignment.Start)
-                        .padding(start = 24.dp, top = 30.dp)
+                        .wrapContentWidth(Alignment.CenterHorizontally)
+//                        .wrapContentHeight(Alignment.CenterVertically)
+                        .padding(start = 24.dp, top = 50.dp , end = 24.dp)
                 )
-                Text(text = "$wish" , modifier = Modifier.padding(24.dp).
-                wrapContentWidth(Alignment.Start))
-                Text(text = "-From $from" ,
-                    fontSize = 16.sp,
+
+                Text(text = "$wish" ,
+                    fontSize = 24.sp,
+                    fontFamily = FontFamily.Cursive,
                     modifier = Modifier
+                        .padding(top= 100.dp , start = 24.dp , end= 24.dp)
                         .fillMaxWidth()
+                        .wrapContentWidth(Alignment.CenterHorizontally)
+                        .wrapContentHeight(Alignment.CenterVertically)
+
+                )
+
+
+                Text(text = "From \n$from" ,
+                    fontSize = 20.sp,
+                    modifier = Modifier
                         .fillMaxHeight()
-                        .padding(top = 400.dp ,  start = 24.dp)
+                        .wrapContentHeight(Alignment.Bottom)
+                        .padding(bottom = 150.dp, start = 24.dp , end = 100.dp)
                 )
             }
     }
@@ -90,8 +107,8 @@ fun GreetingWithText( name: String , wish: String , from: String) {
 @Composable
 fun DefaultPreview() {
     BirthdayApplicationTheme {
-        GreetingWithImage(wish = "Stay blessed! Stay Hydrated!" ,
-            from = "Abhishek Kushwaha" ,
+        GreetingWithImage(wish = "Stay blessed! Stay Hydrated! Hope you have a wonderfull life ahead and full of prosperity and goodwill . :)" ,
+            from = "Aman Kumar Singh" ,
             name = "Google Developers" )
     }
 }
