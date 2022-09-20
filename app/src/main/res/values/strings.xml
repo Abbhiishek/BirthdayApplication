@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">BirthdayApplication</string>
-    <string name="birthday_person_name">Abhishek</string>
+    <string name="app_name">Birthday Application</string>
+    <string name="birthday_person_name">Abhishek Kushwaha</string>
     <string name="birthday_wish">Hope all your birthday wishes come true!</string>
-    <string name="birthday_wish_from">Chandan</string>
+    <string name="birthday_wish_from">Google DSC Jis University</string>
+    <string name="birthday_date">29 March 2003</string>
 </resources>
